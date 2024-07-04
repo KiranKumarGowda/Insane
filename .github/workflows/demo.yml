@@ -3,16 +3,12 @@ on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment: test
     steps:
         - name: Get the code
           uses: actions/checkout@v3
 
-        - name: Print Secret
-          run: echo "Hello my secret is $MY_SECRET"
+        - name: Print environment Secret
+          run : echo "Hello my ecret is $Secret"
           env:
-            MY_SECRET : ${{ secrets.MY_SECRET}}
-        
-        - name: Another Secret
-          run : echo " Ronaldo is the $SECRET"
-          env:
-            SECRET: ${{secrets.SECRET}}
+            Secret : ${{ secrets.Secret }}
