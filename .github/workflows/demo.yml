@@ -11,3 +11,8 @@ jobs:
           run: echo "Hello my secret is $MY_SECRET"
           env:
             MY_SECRET : ${{ secrets.MY_SECRET}}
+        
+        - name: Another Secret
+          run : echo " Ronaldo is the $SECRET"
+          env:
+            SECRET: ${{secrets.SECRET}}
