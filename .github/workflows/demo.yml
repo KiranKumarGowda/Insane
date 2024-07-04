@@ -10,5 +10,11 @@ jobs:
 
         - name: Print environment Secret
           run : echo "Hello my ecret is $Secret"
-          env:
-            Secret : ${{ secrets.Secret }}
+
+        - name: Another secret
+          run : echo " Hey my is your $MY_SECRET"
+          env : 
+            MY_SECRET : ${{ secrets.MY_SECRET }}
+            Secret :    ${{ secrets.Secret }}
+
+            
