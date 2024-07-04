@@ -4,5 +4,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - name: Demo
-          run: echo "Hello World"
+        - name: Get the code
+          uses: actions/checkout@v3
+
+        - name: Print Secret
+          run: echo "Hello my secret is $MY_SECRET"
+          env:
+            MY_SECRET : ${{ secrets.MY_SECRET}}
