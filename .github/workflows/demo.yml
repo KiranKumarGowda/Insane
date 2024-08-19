@@ -1,20 +1,16 @@
 name: Secret Demo
-on: workflow_dispatch
+on: 
+    push:
+      branches:
+        - main
 jobs:
   test:
-    runs-on: ubuntu-latest
-    environment: test
+    runs-on : ubuntu-latest
     steps:
-        - name: Get the code
-          uses: actions/checkout@v3
-
-        - name: Print environment Secret
-          run : echo "Hello my ecret is $Secret"
-
-        - name: Another secret
-          run : echo " Hey my is your $MY_SECRET"
-          env : 
-            Secret :    ${{ secrets.Secret }}
-            MY_SECRET : ${{ secrets.MY_SECRET }}
-
-            
+      - name:  Get the code
+        uses:  actions/checkout@v3
+      - name : Demo
+        run :  echo " Hello my password is $SECRET"
+    
+    env:
+      SECRET : ${{secrets.SECRET}}
