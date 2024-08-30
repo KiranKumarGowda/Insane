@@ -2,15 +2,11 @@ name: Secret Demo
 on: 
     push:
       branches:
-        - main
+        - deva
 jobs:
   test:
     runs-on : ubuntu-latest
     steps:
       - name:  Get the code
-        uses:  actions/checkout@v3
-      - name : Demo
-        run :  echo " Hello my password is $SECRET"
+        run: echo " Hello "
     
-    env:
-      SECRET : ${{secrets.SECRET}}
