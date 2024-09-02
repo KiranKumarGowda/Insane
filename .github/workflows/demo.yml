@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Demo
-        id: step1
-        run: echo "##[set-output name=my_var;]Hello World"  # Fixed the typo and spacing
-
-      - name: Use the output variable
-        run: echo "The message is: ${{ steps.step1.outputs.my_var }}"  # Corrected the reference
+        uses: actions/checkout@v3
+      - name: tets
+        run : echo "Hello my secret is $SECRET" 
+    
+    env:
+      SECRET: ${{secrets.SECRET}}
