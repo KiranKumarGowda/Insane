@@ -1,9 +1,17 @@
-name: Secret Demo
-on: [push, workflow_dispatch]
+name: Demo Setup
+
+on:
+  push:
+    branches:
+      - deva
+
 jobs:
   test:
-    runs-on : ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name:  Get the code
-        run: echo " Helloo Kiran Kumar Gowda R"
-    
+      - name: Demo
+        id: step1
+        run: echo "##[set-output name=my_var;]Hello World"  # Fixed the typo and spacing
+
+      - name: Use the output variable
+        run: echo "The message is: ${{ steps.step1.outputs.my_var }}"  # Corrected the reference
