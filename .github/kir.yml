@@ -1,0 +1,11 @@
+name: just demo
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  gow:
+    runs-on: ubuntu-latest
+    steps:
+     - name: asking 
+       run: echo " hello Kiran "
