@@ -1,20 +1,17 @@
-name: Secret Demo
-on: workflow_dispatch
+name: Demo Setup
+
+on:
+  push:
+    branches:
+      - deva
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: test
     steps:
-        - name: Get the code
-          uses: actions/checkout@v3
+      - name: Demo
+        id: step1
+        run: echo "##[set-output name=my_var;]Hello World"  # Fixed the typo and spacing
 
-        - name: Print environment Secret
-          run : echo "Hello my ecret is $Secret"
-
-        - name: Another secret
-          run : echo " Hey my is your $MY_SECRET"
-          env : 
-            Secret :    ${{ secrets.Secret }}
-            MY_SECRET : ${{ secrets.MY_SECRET }}
-
-            
+      - name: Use the output variable
+        run: echo "The message is: ${{ steps.step1.outputs.my_var }}"  # Corrected the reference
